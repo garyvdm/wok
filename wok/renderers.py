@@ -7,7 +7,7 @@ try:
 except ImportError:
     #XXX
     #logging.info('Pygments not enabled.')
-    print 'Pygments not enabled.'
+    print('Pygments not enabled.')
     have_pygments = False
 
 # List of available renderers
@@ -51,7 +51,7 @@ try:
 except ImportError:
     #XXX
     #logging.debug("markdown isn't available, trying markdown2")
-    print "markdown isn't available, trying markdown2"
+    print("markdown isn't available, trying markdown2")
     markdown = None
 
 # Try Markdown2
@@ -74,7 +74,7 @@ if markdown is None:
     except ImportError:
         #XXX
         #logging.info('Markdown not enabled.')
-        print 'Markdown not enabled.'
+        print('Markdown not enabled.')
 
 
 # Include ReStructuredText Parser, if we have docutils
@@ -100,7 +100,7 @@ try:
 except ImportError:
     #XXX
     #logging.info('reStructuredText not enabled.')
-    print 'reStructuredText not enabled.'
+    print('reStructuredText not enabled.')
 
 
 # Try Textile
@@ -118,7 +118,7 @@ try:
 except ImportError:
     #XXX
     #logging.info('Textile not enabled.')
-    print 'Textile not enabled.'
+    print('Textile not enabled.')
 
 
 if len(all) <= 2:
