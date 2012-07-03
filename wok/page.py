@@ -132,6 +132,8 @@ class Page(object):
         `page.tags` - Will be a list.
         `page.url` - Will be the url of the page, relative to the web root.
         `page.subpages` - Will be a list containing every sub page of this page
+        `page.encoding` - Will be a string containing the unicode codec that
+        will be used to output the page.
         """
 
         self.engine.run_hook('page.meta.pre', self)
@@ -321,6 +323,9 @@ class Page(object):
 
         # subpages
         self.meta['subpages'] = []
+        
+        if not 'encoding' in self.meta:
+            self.meta['encoding'] = 'utf8'
 
         self.engine.run_hook('page.meta.post', self)
 
@@ -467,9 +472,9 @@ class Page(object):
             # TODO: double check this. Permission errors are something to worry
             # about
         logging.info('writing to {0}'.format(path))
-
+        
         f = open(path, 'w')
-        f.write(self.rendered)
+        f.write(self.rendered.encode(self.meta['encoding']))
         f.close()
 
     def __repr__(self):
