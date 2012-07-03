@@ -472,7 +472,7 @@ class Page(object):
             # TODO: double check this. Permission errors are something to worry
             # about
         logging.info('writing to {0}'.format(path))
-        
+
         f = open(path, 'w')
         f.write(self.rendered.encode(self.meta['encoding']))
         f.close()
