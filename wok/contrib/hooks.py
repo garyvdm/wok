@@ -1,4 +1,5 @@
 # vim: set fileencoding=utf8 :
+from __future__ import unicode_literals
 """Some hooks that might be useful."""
 
 import os
@@ -51,7 +52,7 @@ class HeadingAnchors(object):
                 anchor.set('class', 'heading_anchor')
                 anchor.set('href', '#' + name)
                 anchor.set('title', 'Permalink to this section.')
-                anchor.text = u'¶'
+                anchor.text = '¶'
                 heading.append(anchor)
 
                 heading.set('id', name)

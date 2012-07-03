@@ -1,10 +1,11 @@
+from __future__ import unicode_literals
 import re
 from unicodedata import normalize
 from datetime import date, time, datetime, timedelta
 
 # From http://flask.pocoo.org/snippets/5/
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
-def slugify(text, delim=u'-'):
+def slugify(text, delim='-'):
     """
     Generates a slug that will only use ASCII, be all lowercase, have no
     spaces, and otherwise be nice for filenames, identifiers, and urls.

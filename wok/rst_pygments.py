@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 """
     The Pygments reStructuredText directive
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,6 +35,7 @@
     :copyright: Copyright 2006-2010 by the Pygments team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 """
+
 
 # Options
 # ~~~~~~~
@@ -76,7 +78,7 @@ class Pygments(Directive):
             lexer = TextLexer()
         # take an arbitrary option if more than one is given
         formatter = self.options and VARIANTS[self.options.keys()[0]] or DEFAULT
-        parsed = highlight(u'\n'.join(self.content), lexer, formatter)
+        parsed = highlight('\n'.join(self.content), lexer, formatter)
         return [nodes.raw('', parsed, format='html')]
 
 directives.register_directive('sourcecode', Pygments)
