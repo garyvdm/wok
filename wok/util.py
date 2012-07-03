@@ -12,7 +12,8 @@ def slugify(text, delim='-'):
     """
     result = []
     for word in _punct_re.split(text.lower()):
-        word = normalize('NFKD', unicode(word)).encode('ascii', 'ignore')
+        word = normalize('NFKD', word)
+        word = word.encode('ascii', 'ignore').decode('ascii')
         if word:
             result.append(word)
 
@@ -22,7 +23,7 @@ def slugify(text, delim='-'):
     if result[-1] == '-':
         result = result[:-1]
 
-    return unicode(result)
+    return result
 
 
 def chunk(li, n):
